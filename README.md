@@ -491,6 +491,49 @@ const btn = document.getElementById("#btn") as HTMLButtonElement;
 btn.addEventListener(...);
 btn.backgroundColor = 'red';
 
+===============
+
+function someFunc(input: string | number) {
+	if(typeof input === "string") {
+
+	}
+	if(typeof input ==="number"){
+
+	}
+}
+
+
+Type Narrowing using "in" operator
+
+type Circle = {
+	radius:number
+}
+
+type Rectangle = {
+	width:number;
+	height:number
+}
+
+function calcuateArea(shape: Circle | Rectangle) {
+	if("radius" in shape) {
+
+		} else if("width" in shape) {
+
+		}
+}
+
+========
+
+
+Function Types and Webpack
+
+=======================================================
+
+
+
+
+
+
 
 
 
