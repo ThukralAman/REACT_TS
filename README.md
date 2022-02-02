@@ -161,17 +161,335 @@ is a platform with V8 JavaScript engine to execute JS
 			payment.chunk.js
 			vendor.chunk.js
 
+=============================================
+
+Sample NodeJS project
+
+folder> npm init --y
+
+Node has:
+1) Node Package Manager like PIP, Maven, Gradle
+2) YARN is also a node package manager
+
+Node comes with some pre-defined modules like "fs", "http", "crypto", "path", "url",..
+
+Sometimes we may need to install 3rd party modules into project; NPM or YARN can be used
+
+--> need to publish my project into repo ==> NPM or YARN
+
+--
+Every node project needs: package.json
+
+* dependencies
+	3rd party modules required for my project which is a must in production env.
+	Example: jQuery, react, react-dom, lodash, underscore
+	npm i lodash
+  
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+
+   "lodash": "4.17.21" ==> exact version
+   "lodash": "~4.17.21" ==> major version has to be "4"
+   "lodash": "^4.17.21" ==> min version is 4.17.21
 
 
+* devDependencies
+	3rd party modules which are required only in development stage
+	like tesing, static code analysis
+	mocha, chai, jest, jasmine, cypress, eslint
+
+	npm i -D mocha chai
+	or
+	npm i --save-dev mocha chai
+	or
+	yarn add -D mocha chai
+
+	"devDependencies": {
+   		 "chai": "^4.3.6",
+   		 "mocha": "^9.2.0"
+    }
+
+==> above installed modules are avaialble in "node_modules" folder of "project"
 
 
+* scripts
+"scripts": {
+    "test": "mocha --reporter spec",
+    "start": "node ./server.js",
+    "e2e" : "cypress --open"
+  }
+  To run the scripts
+  npm start
+  npm test
+  npm run e2e
 
 
+================
+
+NodeJS by default uses CommonJS module system ; ES6 Module System; AMD
+
+* exports.add 
+
+* var add = require('./convertor').add;
+
+=============
+
+clone the project
+
+sampleapp> npm install
+
+OR
+
+sampleapp> yarn
+
+node ./src/server.js
+
+=======================================
+Babel and Tracuer are Traspilers for ECMAScript 2015 (ES6)/ESNext to lower version of JS [ compatabile across browsers]
+https://caniuse.com/
+
+Babel is a free and open-source JavaScript transcompiler that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript
 
 
+TypeScript Compiler [tsc]
+write code in TS ==> transcompile to JS
+
+npm install -g typescript 
+
+users/ AppData/Roaming/npm/ ...
+
+require('typescript') wont work
+
+Global install
 
 
+========================================
 
+
+TypeScript: ==> superset of JS
+* Provide an optional type system for JavaScript ==> Dynamically typed to statically typed
+* Types have proven ability to enhance code quality and understandability
+* Compiler catchs errors early
+* sort of documentation
+
+Basic types:
+1) number
+2) string
+3) boolean
+
+var name:string = "Smith";
+name = 24; // tsc error
+var age:number = 33;
+var status:boolean = true;
+
+Complex types:
+1) enum
+
+enum Direction {
+	NORTH,
+	EAST,
+	WEST,
+	SOUTH
+};
+cons direction:Direction = Direction.EAST;
+
+2) Object type
+JSON ==> Javascript Object notation
+
+let person: {name: string, age:number} = {name:"Anitha", age:33};
+
+console.log(person.name, person.age);
+
+3) Array type
+
+let person: {name: string, age:number}[]  = [
+	{name:"Sunitha", age:33},
+	{name:"Anitha", age:23}
+]
+
+
+4) Union Type
+
+let course:string | number  = "React JS";
+
+course = 423;
+
+====================
+
+Type alias:
+
+type Person = {
+	name: string, 
+	age:number
+};
+
+let person:Person;
+
+person = {name:"Anitha", age:33};
+
+let employee:Person;
+
+=============================================
+
+
+Function type:
+
+function add(a:number, b:number) : number | string {
+	return   (a + b);
+}
+
+console.log(add(5,6));
+
+=================================================
+
+Special types:
+
+"any" type
+
+let myVar:any = 0;
+
+myVar = "1";
+
+myVar = true;
+
+"unknown" type
+
+let myVar:unknown = 0;
+
+myVar = "1";
+
+myVar = true;
+
+
+Difference: "any" won;t throw type errors
+
+function invokeAnything(callback:any) {
+ callback();
+}
+
+invokeAnything(100);
+
+"tsc" allows but runtime errors
+
+------
+
+function invokeAnything(callback:unknown) {
+ callback();
+}
+
+invokeAnything(100);
+
+"tsc" fails
+
+Solution:
+function invokeAnything(callback:unknown) {
+ if(typeof callback === 'function') {
+   callback();
+ }
+}
+
+invokeAnything(100);
+
+=====================================
+
+"Optional Properties"
+
+function printName(obj: {firstName:string; lastName?:string}) {
+ console.log(firstName + ", " + lastName);
+} 
+
+printName({"firstName":"Raj", "lastName": "Kumar"});
+
+
+printName({"firstName":"RajKumar"});
+
+
+====================
+
+Interface instead of "type"
+
+* interface as shape
+* interface as behaviour contract ==> Realization relationship
+* interface is extendable
+
+* As Shape
+interface Person  {
+	name: string, 
+	age?:number
+};
+
+function dotask(person:Person) {
+	...
+}
+
+doTask({"name": "a", "age": 22});
+
+doTask({"name": "anil"});
+
+interface Greeting {
+	greet();
+}
+
+
+class EmailGreeting implements Greeting {
+	// forces you to have 
+	greet() {
+		//
+	}
+}
+
+
+interface Dance {
+	dance();
+}
+
+interface Fight extends Dance {
+	fight();
+}
+
+class Actor implements Fight {
+	dance() {
+
+	}
+	fight() {
+
+	}
+}
+
+===============================
+
+Type Assertions: "as"
+
+// some 3rd party with JS code
+function getPerson() {
+	return {}
+}
+
+interface Person  {
+	name: string, 
+	age?:number
+};
+
+let person = getPerson();
+
+person.name = "" ; // Property "name" does not exist on type {}
+
+
+Solution:
+let person = getPerson() as Person;
+person.name = "" ; // OK
+
+Type Assertions: angle-bracket syntax
+
+let person = <Person>getPerson();
+
+<button id="btn"></button>
+
+const btn = document.getElementById("#btn") as HTMLButtonElement;
+
+btn.addEventListener(...);
+btn.backgroundColor = 'red';
 
 
 
