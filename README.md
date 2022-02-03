@@ -525,12 +525,95 @@ function calcuateArea(shape: Circle | Rectangle) {
 ========
 
 
-Function Types and Webpack
+Day 2
 
-=======================================================
+JS basics
+NodeJS ==> NPM, YARN , package.json
+Typescript ==> basic types, object, array, enum, type, interface, ... typeof, "as", "in"
+
+---
+
+TypeScript REST parameters
+
+function getTotal(...numbers:numbers[]) : number {
+	let total = 0;
+	numbers.forEach(n => total += n);
+	return total;
+}
+
+
+console.log(getTotal());
+console.log(getTotal(10,20,30));
+console.log(getTotal(4,5,1,1,4,66));
+
+without REST parameters:
+function getTotal(numbers:numbers[]) : number {
+
+
+let args:numbers[] = [5,2,5];
+getTotal(args);
+
+-------------
+
+Function Types
+
+function add(a:number, b:number) : number | string {
+	return   (a + b);
+}
+
+can be done as:
+
+let doTask:(data:number[]) => void;
+
+let doTask:(data:number[]) => number;
+
+let doTask:(data:number[]) => any;
+
+let doTask:(data:number[]) => string | number;
+
+let doTask:(data:number[]) => {};
 
 
 
+// Declaration
+let add:(x: number, y: number) => number | string;
+
+// definition
+add = function(a:number, b:number)  {
+	return   (a + b);
+}
+
+
+------------
+
+Promise API introduced in ES2015
+
+Asynchronous function which results in "resolve" or "reject" a call
+
+Synchronous call:
+
+let res = doTask();
+console.log("line gets executed only on completion of doTask");
+
+
+Asynchronous function call:
+
+doTask has some async code ==> hit the server and return the result
+API call http://server.com/users/5
+
+==> resolve if user exists ==> {"id": 5, "name": "Harry"}
+==> reject if user not found "user with id 5 doesn'exist"
+
+
+doTask().then( function(res) {
+
+},
+
+funtion(rej){
+
+});
+
+console.log("line gets executed before doTask");
 
 
 
