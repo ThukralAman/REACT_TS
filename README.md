@@ -722,15 +722,169 @@ forEach<number>(nos, console.log);
 forEach<string>(names, console.log);
 
 
+=======================================
+
+let p = {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"};
+
+let ref = p ; // reference as in pointer
+
+ref.price = 4444;
+
+p.price would have changed
+
+let clone = {...p}; // copy of p
+
+clone.name ="test"; // wont change p
+
+==
+
+let elems = [6,2,21,6,11,1];
+
+let copy = [...elems]; // copy of elems
+
+
+// Destructuring
+
+let [x,y, ...data] =  elems;
+
+x will have 6
+y will be 2
+
+data will be [ 21,6,11,1];
+
+==================
+
+Closure HOF and Webpack
+
+* Function returning a function
+
+Closure in JS refers to a way inner function can access the data of outer function
+
+function greeting(msg, name) {
+	return msg + " " + name;
+}
+
+greeting("Good morning" , "Tina");
+greeting("Good morning" , "Ria");
+
+
+function greeting(msg) {
+	return function(name) {
+		return msg + " " + name;
+	}
+}
+
+
+var mGreet = greeting("Good morning");
+
+mGreet("Harish");
+mGreet("Yanni");
+
+var eGreet = greeting("Hi");
+eGreet("George");
+
+for mGreet ==> greeting() with msg member is a part of Closure
+
+==================
+
+T ==> number R ==> Employee
+
+getEmpId(5); ==> REST call ==> server return JSON
+
+getEmpId(5); ==> check cache ==> if not present REST call ==> server return JSON
+
+
+T ==> number R ==> number
+
+function fibanocci(no:number) : number {
+ return no ===0 || no ===1 ? no : fibanocci(no -1) + fibanocci(no -2);
+}
+
+console.time("first");
+ console.log( fibanocci(34));
+console.timeEnd("first");
+
+console.time("second");
+ console.log( fibanocci(34));
+console.timeEnd("second");
+
+==============================
+
+JavaScript build tools
+
+* Grunt
+* Gulp
+* Webpack
+
+Grunt is a JavaScript task runner, a tool used to automatically perform frequent tasks such as minification, uglify, bundle, compilation, unit testing, and linting. 
+
+src / ==> n number of "ts" files
+dist / ==> all compiled "js"
+bundle all "js" into main.js
+include this into index.html
+
+Webpack ==> default commig from scaffolding code generators for Angular, React, ...
+
+
+===============
+
+webpackexample> npm init --y
+
+webpackexample> yarn add webpack webpack-cli webpack-dev-server typescript ts-loader html-webpack-plugin -D
+
+webpackexample> tsc --init
+
+creates tsconfig.json
+
+Person.ts
+export default class Person {
+    private name:string;
+    private age:number;
+    constructor(name:string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public getName(): string {
+        return this.name;
+    }
+
+    public getAge(): number {
+        return this.age;
+    }
+}
+
+Or
+ constructor(private name:string, private age: number) {
+  }
+
+
+ webpack --mode development
+
+asset bundle.js 3.98 KiB [emitted] (name: main)
+./src/index.ts 514 bytes [built] [code generated]
+./src/Person.ts 429 bytes [built] [code generated]
+./src/compute.ts 260 bytes [built] [code generated]
+webpack 5.68.0 compiled successfully in 3186 ms
+
+npm run prod          
+
+ 
+> webpack --mode production
+
+asset bundle.js 892 bytes [emitted] [minimized] (name: main)
+./src/index.ts 513 bytes [built] [code generated]
+./src/Person.ts 429 bytes [built] [code generated]
+./src/compute.ts 260 bytes [built] [code generated]
+webpack 5.68.0 compiled successfully in 3715 ms
 
 
 
+Minification ==> eliminate white spaces
 
+Uglify ==> shorten names
 
-
-
-
-
+=================
 
 
 
