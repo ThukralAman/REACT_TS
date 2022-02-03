@@ -616,6 +616,59 @@ funtion(rej){
 console.log("line gets executed before doTask");
 
 
+==========
+
+interface User {
+ id:number,
+name:string
+}
+
+// Type alias
+type fetchData = (id:number) => Promise<User>
+
+function fetchData(id:number) {
+	return new Promise<User>( function(resolve, reject) {
+		setTimeout( function() {
+			resolve({"id": 20, "name" : "Banu"});
+		}, 2000);
+   });
+}
+
+
+fetchData(20).then( function(data) {
+  console.log(data);
+},
+function(err) {
+  console.log("Boom :-(" , err);
+});
+
+console.log("non blocking!!");
+
+//tsc --lib ES2015,dom promiseExample.ts
+
+
+// XMLHttpRequest
+
+
+===================================
+
+Async and Await ==> simplify usage of promise
+
+fetch('https://jsonplaceholder.typicode.com/users/1')
+.then( 
+ function(response) {
+ 	response.json()
+ })
+ .then(function(result) {
+ 	console.log(result));
+});
+
+using Arrow:
+fetch('https://jsonplaceholder.typicode.com/users/1').then( data => data.json()).then(result => console.log(result))
+
+===
+
+
 
 
 

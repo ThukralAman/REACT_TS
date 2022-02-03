@@ -25,3 +25,4 @@ err => {
 console.log("non blocking!!");
 
 //tsc --lib ES2015,dom promiseExample.ts
+// node promiseExample.js
