@@ -3,7 +3,6 @@ interface User {
 name:string
 }
  
-
 async function fetchData(url:string): Promise<User[]> {
 	const response = await fetch(url); // blocks
 	return response.json();
@@ -17,3 +16,5 @@ console.log("non blocking!!");
 
 //tsc --lib ES2015,dom asyncExample.ts
 // node asyncExample.js
+
+ 

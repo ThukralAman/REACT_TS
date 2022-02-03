@@ -666,7 +666,65 @@ fetch('https://jsonplaceholder.typicode.com/users/1')
 using Arrow:
 fetch('https://jsonplaceholder.typicode.com/users/1').then( data => data.json()).then(result => console.log(result))
 
-===
+====================
+
+Typescript Generics
+
+
+function merge<U,V>(obj1: U, obj2: V) {
+  return {	
+    ...obj1,
+   ...obj2
+  }
+}
+
+
+let person = merge(
+  {name: "Kim"},
+  {age:44}
+);
+
+console.log(person.name, person.age); // {name: "Kim", age : 44}
+
+Problem:
+
+let person = merge(
+  {name: "Kim"},
+  25
+);
+
+Solution:
+
+function merge<U extends Object,V extends Object>(obj1: U, obj2: V) {
+
+========================================================
+
+
+High Order Function:
+* function accepts function as arguments
+* function returning a function
+
+treat function as first-class member
+ 
+// HOF because it takes action function
+function forEach<T>(elems:T[], action:(elem:T) => void): void {
+	let i: number;
+	for(i = 0; i < elems.length; i++) {
+		action(elem[i]);
+	}
+}
+
+let nos:number[] = [6,2,21,5];
+let names:string[] = ["Sita", "geetha", "Radha", "Raja", "Seena"];
+
+forEach<number>(nos, console.log);
+
+forEach<string>(names, console.log);
+
+
+
+
+
 
 
 
