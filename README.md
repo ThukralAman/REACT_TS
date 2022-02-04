@@ -1106,9 +1106,82 @@ diffs.forEach(diff => {
 
 =============================
 
+npx create-react-app reactsample --template typescript
+
+=============================
 
 
+let productsData = [
+    {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+    {"id":2,"name":"Onida","price":4444.44,"category" : "tv"},
+    {"id":3,"name":"OnePlus 6","price":98444.44,"category" : "mobile"},
+    {"id":4,"name":"HDMI connector","price":2444.00,"category" : "computer"},
+    {"id":5,"name":"Samsung","price":68000.00,"category" : "tv"}];
+
+function ProductList({title, products}) {
+  return <div>
+          <h1>{title}</h1>
+          {
+            products.map(p => <Product product={p}  key={p.id}/>)
+          }
+    </div>
+}
+
+function Product({product}) {
+  return <div>
+    Name: {product.name} <br />
+    Price : {product.price} <hr />
+   </div>
+}
+ReactDOM.render(<ProductList title="Product List" products={productsData}/>, document.getElementById("app"));
+
+==========================
+
+* Class Component
+
+class Welcome extends React.Component {
+
+}
+
+
+* class components can have state and behaviour
+* life cycle methods
+	componentDidMount()
+	shouldComponentUpdate()
+	componentWillUnmount()
 
  
+class ProductList extends React.Component {
+	state = {
+			"products": [
+  					 {"id":1,"name":"iPhone","price":124447.44,"category" : "mobile"},
+    			...],
+    	"isLoading": false
+	}
+	// return JSX
+	render() {
+		return <div>
+         		 <h1>{title}</h1>
+         		 {
+           			 this.state.products.map(p => <Product product={p}  key={p.id}/>)
+          	}
+    		</div>
+	}
+ // behaviour
+	deleteProduct(id) {
+
+	}
+
+}
+
+
+function Product({product}) {
+  return <div>
+    Name: {product.name} <br />
+    Price : {product.price} <hr />
+   </div>
+}
+ReactDOM.render(<ProductList title="Product List" />, document.getElementById("app"));
+
 
 
