@@ -6,13 +6,23 @@ const config = {
     entry: './src/index.ts',
     output : {
         path: path.resolve(__dirname, "dist"),
-        filename: 'bundle.js'
+        filename: '[name].[contenthash].js'
     },
     plugins: [new HtmlWebpackPlugin({
         template:path.resolve(__dirname, "src", "index.html")
     })],
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            name: 'vendor'
+        }
+    },
     module: {
         rules: [
+            {
+                test:/\.css$/,
+                use:['style-loader', 'css-loader']
+            },
             {
                 test:/\.ts(x)?$/,
                 loader: 'ts-loader',

@@ -1,8 +1,11 @@
+import './styles.css';
 import Person from './Person';
 
 import {add,sub} from './compute';
 
+import {random} from 'lodash';
 
+console.log("Random : =>" + random(1,100));
 console.log("Hello World!!!");
 
 let p1 = new Person("Dinesh", 21);

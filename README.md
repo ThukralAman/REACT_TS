@@ -894,6 +894,88 @@ webpack-dev-server can be used to quickly develop an application.
 
 Hot re-loading
 
+===========================
+
+Day 3
+
+Webpack ==> build tool
+
+JavaScript in Typescript
+
+Approach 1)
+<script src="cdn of loadash"></script> ==> globally lodash librarires are available
+
+my.ts
+
+declare var random:any;
+
+function doTask(): void {
+	console.log(random(1,100));
+}
+
+
+Approach 2)
+
+
+instead of <script src="..."></script>
+npm i lodash
+this install "js" in node_modules
+
+typings.d.ts
+declare module 'lodash' {
+	export function random(min:number, max:number): number
+}
+
+
+my.ts
+import {random} from 'lodash'; 
+
+function doTask(): void {
+	console.log(random(1,100));
+}
+
+
+Approach 3)
+
+no need for typings.d.ts
+
+https://github.com/DefinitelyTyped/DefinitelyTyped
+
+npm i lodash @types/lodash
+
+npm i jquery @types/jquery
+
+import {random} from 'lodash';
+
+console.log("Random : =>" + random(1,100));
+
+
+================================================
+
+Using css-loader in webpack
+
+yarn add css-loader style-loader -D
+
+styles.css
+body {
+    background-color: burlywood;
+    color:cadetblue
+}
+
+
+css-loader resolves import './styles.css'
+
+style-loader includes css in style tag in html
+
+index.ts
+import './styles.css';
+
+====================================================
+
+
+
+
+
  
 
 
