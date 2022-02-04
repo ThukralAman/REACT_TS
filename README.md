@@ -1196,12 +1196,50 @@ ReactDOM.render(<ProductList title="Product List" />, document.getElementById("a
 =======
 
 Welcome.tsx
+```
 export default function Welcome({msg}: {msg?:string}):React.ReactElement | null {
     return <h1>Hello {msg} </h1>
 }
+
+```
 
 App.tsx
  <Welcome />
  <Welcome msg="Good Day"  />
 
  https://notepad.ltd/egrnhgxh
+
+ =======================
+
+ Children Props
+
+ ```
+ import React from "react";
+
+export default function Parent({children} : {children:React.ReactNode}) : React.ReactElement | null {
+    return <div> Parent {children} </div>
+}
+
+// <Parent> <Welcome msg="..." /> </Parent>
+
+// <Parent> <h1> sdfsdf </h1> </Parent>
+
+import './App.css';
+import Parent from './trial/Parent';
+import Welcome from './trial/Welcome';
+
+function App() {
+  return (
+    <div className="App">
+       <h1>React Application</h1>
+       <Welcome />
+       <Parent>
+        <Welcome msg="Good Day"  />
+       </Parent>
+    </div>
+  );
+}
+
+export default App;
+
+````
