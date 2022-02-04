@@ -1,6 +1,7 @@
 import './App.css';
 import Parent from './trial/Parent';
 import Welcome from './trial/Welcome';
+import WelcomeFC from './trial/WelcomeFC';
 
 function App() {
   return (
@@ -10,6 +11,10 @@ function App() {
        <Parent>
         <Welcome msg="Good Day"  />
        </Parent>
+       <WelcomeFC>
+          <h1> This is React.FC example!!!</h1>
+      </WelcomeFC>
+       <WelcomeFC msg="Hi"/>
     </div>
   );
 }
