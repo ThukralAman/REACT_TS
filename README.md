@@ -1054,6 +1054,7 @@ Functional Components
 * returns JSX ==> JavaScript and XML ==> Babel or Typescript understands this and converts to ReactElement
 
 props ==> a mechanism using which parent passes data to child
+```
 
 function Welcome(props) {
   return <div>
@@ -1072,6 +1073,7 @@ function Welcome({title, msg}) {
    </div>
 }
 ReactDOM.render(<Welcome title="React" msg ="Using Typescript"/>, document.getElementById("app"));
+```
 
 =================
 
@@ -1082,6 +1084,7 @@ VDOM ==> DOM
 first Reconciliation happens when render() is called
 
 diff algorithim
+```
 
 const domElement = document.querySelector(".list");
 const diffs = [
@@ -1103,12 +1106,14 @@ diffs.forEach(diff => {
 		domElement.appendChild(diff.newNode);
 	}
 });
+```
 
 =============================
 
 npx create-react-app reactsample --template typescript
 
 =============================
+```
 
 
 let productsData = [
@@ -1135,6 +1140,8 @@ function Product({product}) {
 }
 ReactDOM.render(<ProductList title="Product List" products={productsData}/>, document.getElementById("app"));
 
+```
+
 ==========================
 
 * Class Component
@@ -1150,7 +1157,8 @@ class Welcome extends React.Component {
 	shouldComponentUpdate()
 	componentWillUnmount()
 
- 
+```
+
 class ProductList extends React.Component {
 	state = {
 			"products": [
@@ -1171,9 +1179,9 @@ class ProductList extends React.Component {
 	deleteProduct(id) {
 
 	}
-
 }
 
+```
 
 function Product({product}) {
   return <div>
