@@ -972,6 +972,139 @@ import './styles.css';
 
 ====================================================
 
+REACT.js
+
+Rendering ==> data to presentation
+
+Server side Rendering [ SSR ]
+	data is converted to presentation and presentation page [HTML , pdf, image ] is served to client
+	client is thin
+	Tradional Web applicaiton development ==> Servelt & JSP, PHP, ASP.NET, Next.js
+
+	Templates ==> JSP, ASP, ASP.NET, PHP, EJS, PUG, JADE
+
+
+Client side Rendering [ CSR ]
+	data is sent to client and rendered on client machine [ Android, Swift, Web, Standalone]
+
+	Web application client side rendering
+	* Templates ==> jQuery, Mustache {{ , HandleBars # , Underscore _name
+
+	SPA ==> Single page applications, modules, dependencies , ..
+
+	* Data binding ==> one way [ React ] or two way [ Angular ]
+	* lazy loading modules
+	* Routers
+			-> different URLS should show different views
+				http://amazon.com/mobiles/iPhone
+				http://amazon.com/mobiles/Pixel
+				http://amazon.com/tvs
+				http://amazon.com/cart
+
+				we have only one index.html
+
+				* SEO 
+				* Bookmark
+				* Navigate between views ==> History API
+				* Authorization
+					use http://amazon.com/cart only if user is logged in.
+				* lazy loading modules
+					load cart module only if my url is http://amazon.com/cart
+
+Backbone, Angular.JS, Angular ==> Frameworks for building Web applications
+Model, View, controller, state management, HTTP api
+
+React.js ==> view library
+
+===========================================================================
+
+CodePen
+
+JS
+
+Preprocessor : Babel
+
+https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js
+https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js
+
+
+
+ReactElement
+
+let Welcome = React.createElement("h1", {style: {'color':'red'}}, "Welcome to React");
+
+console.log(Welcome)
+
+ReactDOM.render(Welcome, document.getElementById("app"));
+
+
+* Functional Component
+* class Component
+
+function Welcome() {
+  return <div>
+    <h1>Functional Component</h1>
+    <h3>React Example</h3>
+   </div>
+}
+ReactDOM.render(<Welcome />, document.getElementById("app"));
+
+Functional Components
+* starts with UpperCase
+* returns JSX ==> JavaScript and XML ==> Babel or Typescript understands this and converts to ReactElement
+
+props ==> a mechanism using which parent passes data to child
+
+function Welcome(props) {
+  return <div>
+    <h1>{props.title}</h1>
+    <h3>{props.msg}</h3>
+   </div>
+}
+ReactDOM.render(<Welcome title="React" msg ="Using Typescript"/>, document.getElementById("app"));
+
+or
+
+function Welcome({title, msg}) {
+  return <div>
+    <h1>{title}</h1>
+    <h3>{msg}</h3>
+   </div>
+}
+ReactDOM.render(<Welcome title="React" msg ="Using Typescript"/>, document.getElementById("app"));
+
+=================
+
+Reconciliation
+
+VDOM ==> DOM
+
+first Reconciliation happens when render() is called
+
+diff algorithim
+
+const domElement = document.querySelector(".list");
+const diffs = [
+	{
+		newNode : { <li>2 </li>},
+		oldNode: { <li>Two</li>},
+		index:1
+	},
+	{
+		newNode: {<li>Four</li>},
+		index:3
+	}
+]
+
+diffs.forEach(diff => {
+	if(diff.oldNode) {
+		domElement.replaceChild(diff.newNode, diff.index);
+	} else {
+		domElement.appendChild(diff.newNode);
+	}
+});
+
+=============================
 
 
 
