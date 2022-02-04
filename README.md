@@ -1193,3 +1193,15 @@ ReactDOM.render(<ProductList title="Product List" />, document.getElementById("a
 
 
 
+=======
+
+Welcome.tsx
+export default function Welcome({msg}: {msg?:string}):React.ReactElement | null {
+    return <h1>Hello {msg} </h1>
+}
+
+App.tsx
+ <Welcome />
+ <Welcome msg="Good Day"  />
+
+ https://notepad.ltd/egrnhgxh
