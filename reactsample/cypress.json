@@ -1,0 +1,5 @@
+{
+    "integrationFolder":"./e2e",
+    "testFiles":"**/*.spec.tsx",
+    "baseUrl":"http://localhost:3000"
+}

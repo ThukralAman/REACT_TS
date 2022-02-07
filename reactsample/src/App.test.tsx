@@ -26,11 +26,11 @@ it("delete a customer", () => {
   expect(btns.length).toBe(5);
 })
 
-it("filter a customer", () => {
-  render(<App/>);
-  let txtBox = screen.getByPlaceholderText("search by name");
-  fireEvent.change(txtBox, {"target" : {"value": "Geller"}});
-  // screen.debug();
-  let btns = screen.queryAllByRole('button');
-  expect(btns.length).toBe(2);
-})
+// it("filter a customer", () => {
+//   render(<App/>);
+//   let txtBox = screen.getByPlaceholderText("search by name");
+//   fireEvent.change(txtBox, {"target" : {"value": "Geller"}});
+//   // screen.debug();
+//   let btns = screen.queryAllByRole('button');
+//   expect(btns.length).toBe(2);
+// })

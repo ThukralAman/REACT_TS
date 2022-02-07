@@ -1349,6 +1349,51 @@ yarn add cypress -D
 
 ==================
 
+ screen.debug();
+  <body>
+      <div>
+        <div
+          class="App"
+        >
+          <h1>
+            React Application
+          </h1>
+          <div>
+            <input 
+              placeholder="search by name"
+              type="text"
+            />
+            <div class="row">
+              Monica
+                
+              Geller
+                
+              <button type="button"> × </button>
+            </div>
+             <div class="row">
+              Ross
+                
+              Geller
+                
+              <button type="button"> × </button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+
+ App.test.tsx
+ CustomerRow.test.tsx
+
+ npm test
+
+ npm test -- --coverage --watchAll=false
+
+ ================
+
  
+
+
 
 
