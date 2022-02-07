@@ -1392,8 +1392,65 @@ yarn add cypress -D
 
  ================
 
- 
+ Angular comes with built-in e2e testing library ==> Protractor [ on top of selenium]
+
+ Cypress ==> e2e testing library
+
+ ==============
+
+ React Hooks
+ Hooks are a new addition in React 16.8 ==> now in 17.0.2
+
+ They let you use state and other React features without writing a class.
+
+==> Class Component ==> state, behaviour, ComponentLifecyle methods
 
 
 
+1) useState() 
+	to introduce state in functional components
+
+```
+	 let [count, setCount] = React.useState	(0);
+	 let [user, setUser] = React.useState<string>("");
+
+	 	same as:
+
+	 	class .. extends React.Component {
+	 		state = {
+	 			count: 0,
+	 			user : ""
+	 		}
+
+
+	 		setCount(c) {
+	 			this.setState({
+	 				count: c
+	 			})
+	 		}
+
+	 		setUser(u) {
+	 			this.setState({
+	 				user : u
+	 			})
+	 		}
+	 	}
+```
+Example:
+
+```
+import React from 'react';
+
+export default function StateHookComponent() {
+    let [count, setCount] = React.useState<number>(0);
+    let [user, setUser] = React.useState<string>("");
+
+    return <>
+        Count : {count} <br />
+        User : {user} <br />
+        <button onClick={() => setCount(count + 1)}>Click</button>
+    </>
+} 
+
+```
 
