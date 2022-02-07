@@ -10,10 +10,10 @@ export interface IAppState {
 }
 
 export default class CustomerList extends Component<IAppProps, IAppState> {
-    constructor(props:IAppProps) {
+     constructor(props:IAppProps) {
         super(props);
         this.state  = {
-            "customers" : [
+             "customers" : [
                 {
                     "id": 1,
                     "firstName": "Rachel",
@@ -51,9 +51,18 @@ export default class CustomerList extends Component<IAppProps, IAppState> {
     public render() {
         return <div>
             {
-                this.state.customers.map(customer => <CustomerRow key={customer.id} customer={customer}/>)
+                this.state.customers.map(customer => <CustomerRow 
+                    key={customer.id} customer={customer} delEvent={id => this.deleteCustomer(id)}/>)
             }
         </div>
+     }
+
+     deleteCustomer(id:number): void {
+         let custs = this.state.customers.filter(c => c.id != id);
+         // async
+         this.setState({
+             "customers": custs
+         }, () => console.log("deleted !!!", id));
      }
 
 }
