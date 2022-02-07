@@ -1247,7 +1247,19 @@ export default App;
 
  Day 4
 
- 
+ LifeCycle methods:
+   componentDidMount() 
+   	Component created ==> constructor ==> render() ==> componentDidmount() ==> any changes in state ==> render()
+
+   	generally we make API calls in   componentDidMount() 
+   	Never make API calls in constructor()
+
+
+   	==> to take care of FCP
+
+   componentDidUnmount() 
+   
+===============================
 
 
 
