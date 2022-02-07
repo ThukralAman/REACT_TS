@@ -1258,9 +1258,98 @@ export default App;
    	==> to take care of FCP
 
    componentDidUnmount() 
-   
+
 ===============================
 
+
+
+We need a root element in JSX return type
+
+ return <div>
+ 			..
+
+ </div>
+
+ ===============
+
+ return <React.Fragment>
+		 			<h1>React</h1>
+		 			<button />
+		 			<h3>df</h3>
+ </React.Fragment>
+
+====
+shorthand:
+return <>
+		
+</>
+
+=======================
+
+yarn add cypress
+
+====================================
+
+Testing
+	==> Unit Testing
+	==> E2E Testing
+
+Unit Testing
+	==> test your components 
+	JS unit testing libraries ==> Jasmine, Mocha, Jest
+
+	Angular by default uses Jasmine;
+	Mocha good for server side JS testing
+	React by default uses JEST as unit testing framework
+
+	RTL --> React Testing Library is built on top of Jest ==> apis for testing components
+
+
+import { render, screen } from '@testing-library/react';
+ 
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+@testing-library/react ==> render() like ReactDOM.render()
+ 
+ ReactDOM.render(<App/>);
+ 
+ render(<App />); ==> HTML rendered output in string 
+
+
+ Testing is all about AAA ==> Assemble Action Assert
+
+ Assemble ==> test Suite
+
+ describe("testing customer module", () => {
+ 		// init
+ 		it("testing delete", () => {
+ 			action
+ 			assertion
+ 		});
+
+ 		test("filter customers", () => {
+ 			action
+ 			assertion
+ 		});
+
+ });
+
+
+ JEST by default uses one file as one TestSuite
+
+
+
+============
+yarn add cypress -D
+
+==================
+
+Resume @ 11:30
 
 
 
