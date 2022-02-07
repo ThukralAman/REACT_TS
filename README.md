@@ -1454,3 +1454,10 @@ export default function StateHookComponent() {
 
 ```
 
+npx create-react-app shopapp --template typescript
+shopapp> yarn add bootstrap react-router-dom styled-components @types/styled-components
+
+==========
+
+
+
