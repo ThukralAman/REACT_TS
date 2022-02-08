@@ -1578,6 +1578,8 @@ class Child extends React.Component {
 
 Solution 2)
 use this if state is simple data not complex object
+
+
 class Child extends React.PureComponent {
     render() {
       console.log("child renders!!!")
@@ -1633,6 +1635,66 @@ ReactDOM.render(<Parent/> , document.getElementById("root"));
 ```
 
 
+7) useCallback() Hook
+
+https://github.com/BanuPrakash/REACT_TS/blob/main/memo_callback.js
+
+```
+
+function Title() {
+  console.log('Rendering Title')
+  return (
+    <h2>
+      Example: Title
+    </h2>
+  )
+};
+
+
+function Button({ handleClick, children }) {
+  console.log('Rendering button - ', children)
+  return (
+    <button onClick={handleClick}>
+      {children}
+    </button>
+  )
+}
+
+function Count({ text, count }) {
+	console.log(`Rendering ${text}`)
+	return <div>{text} - {count}</div>
+}
+
+let MemoTitle = React.memo(Title);
+let MemoCount = React.memo(Count);
+let MemoButton = React.memo(Button);
+
+function ParentComponent() {
+	const [age, setAge] = React.useState(25)
+	const [salary, setSalary] = React.useState(50000)
+
+	 const incrementAge = React.useCallback(() => {
+		setAge(age + 1)
+	}, [age]);
+
+	const incrementSalary = React.useCallback(() => {
+   		setSalary(salary + 1000)
+	},[salary]);
+  
+	return (
+		<div>
+			<MemoTitle />
+			<MemoCount text="Age" count={age} />
+			<MemoButton handleClick={incrementAge}>Increment Age</MemoButton>
+			<MemoCount text="Salary" count={salary} />
+			<MemoButton handleClick={incrementSalary}>Increment Salary</MemoButton>
+		</div>
+	)
+}
+
+ReactDOM.render(<ParentComponent/>, document.getElementById("root"));
+
+```
 
 
 
