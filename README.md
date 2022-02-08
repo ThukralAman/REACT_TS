@@ -1585,6 +1585,52 @@ class Child extends React.PureComponent {
     }
 }
 
+---
+What if Component is functional component?
+function Child(props){
+   console.log("child renders!!!")
+   return <h1>Child {props.name} </h1>
+}
+
+Solution 3)
+Memoize pattern
+
+```
+function Child(props){
+   console.log("child renders!!!")
+   return <h1>Child {props.name} </h1>
+}
+
+let MemoChild = React.memo(Child); // HOC
+// React.memo(Child, applyCheck);
+// function applyCheck(props, newProps) { .... }
+
+class Parent extends React.Component {
+  state = {
+    count : 0,
+    name: 'Banu'
+  }
+  
+  increment() {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+  
+  render() {
+    console.log("Parent renders!!!")
+    return <>
+      Name: { this.state.name} <br />
+      Count : {this.state.count} <br />
+      <MemoChild name={this.state.name} />
+      <button onClick={() => this.increment()}>Click</button>
+     </>
+  }
+}
+
+ReactDOM.render(<Parent/> , document.getElementById("root"));
+
+```
 
 
 
