@@ -1473,6 +1473,53 @@ Day 5
 React Hooks ==> 16.8 version onwards
 
 1) useState()
+2) useReducer()
+ ==> state is complex object 
+ cart
+ {
+ 	product: IProduct[],
+ 	qty: 4,
+ 	total: 
+ }
+ ==> State gets changed based on different Actions
+ ADD_TO_CART
+ REMOVE_FROM_CART
+ INCREMENT
+ DECREMENT
+ CLEAR_CART
+
+ ==
+ An action object contains type of action and payload/data
+ Action ==> {type: , payload: }
+
+3) useEffect 
+	can be used to simulate component life cycle methods
+	componentDidMount ==> constructor ==> render() ==> componentDidMount() ==> API calls
+
+	componentDidUpdate ==> any state or props changes ==> this method gets called
+		==> API calls to make fresh requests
+		dropdown ==> new product id is set as current product state ==> for the product id i need to fetch data
+
+ 4) useRef
+
+5) forwardRef
+
+const FancyButton = React.forwardRef((props, ref) => (
+  <button ref={ref} className="FancyButton">
+    {props.children}
+  </button>
+));
+
+// You can now get a ref directly to the DOM button:
+const ref = React.createRef();
+<FancyButton ref={ref} alt="some fancy" color="red">Click me!</FancyButton>;
+
+ref.click();
+
+3rd part React ==> PrimeReact, KendoUI, Adobe Spectrum
+
+======================
+
 
 
 

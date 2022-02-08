@@ -1,8 +1,10 @@
 import './App.css';
 import CustomerList from './components/CustomerList';
+import CustomHookComponent from './hooks/CustomHookComponent';
 import EffectComponent from './hooks/EffectComponent';
 import { ReducerComponent } from './hooks/ReducerComponent';
 import StateHookComponent from './hooks/StateHookComponent';
+import UseRefComponent from './hooks/UseRefComponent';
 
 function App() {
   return (
@@ -11,7 +13,9 @@ function App() {
        {/* <CustomerList /> */}
        {/* <StateHookComponent/> */}
        {/* <ReducerComponent/> */}
-       <EffectComponent/>
+       {/* <EffectComponent/> */}
+       {/* <UseRefComponent/> */}
+       <CustomHookComponent/>
     </div>
   );
 }
