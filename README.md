@@ -1459,5 +1459,24 @@ shopapp> yarn add bootstrap react-router-dom styled-components @types/styled-com
 
 ==========
 
+Day 5
+
+* class component with state and behaviour ====> CustomerList.tsx
+* functional component ==> pure view component ==> CustomerRow.tsx, Filter.tsx
+
+* RTL ==> unit testing components ==> JEST-DOM ==> JEST
+* Alternate to RTL ==> Enzyme library along with JEST ==> support until React 16 version
+
+* E2E ==> using Cypress
+=============
+
+React Hooks ==> 16.8 version onwards
+
+1) useState()
+
+
+
+
+
 
 
