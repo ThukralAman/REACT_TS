@@ -1508,17 +1508,85 @@ const FancyButton = React.forwardRef((props, ref) => (
   <button ref={ref} className="FancyButton">
     {props.children}
   </button>
+  <input />
+  <Table />
 ));
 
+MyComponent
 // You can now get a ref directly to the DOM button:
 const ref = React.createRef();
+// use 3rd part component
 <FancyButton ref={ref} alt="some fancy" color="red">Click me!</FancyButton>;
 
 ref.click();
 
 3rd part React ==> PrimeReact, KendoUI, Adobe Spectrum
 
-======================
+6) custom hooks
+
+=============
+
+https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/interactions/src/useHover.ts
+
+
+===
+
+Parent and Child re-rendering issues and resolving
+
+```
+class Child extends React.Component {
+    render() {
+      console.log("child renders!!!")
+      return <h1>Child {this.props.name} </h1>
+    }
+}
+
+class Parent extends React.Component {
+  state = {
+    count : 0,
+    name: 'Banu'
+  }
+  
+  increment() {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+  
+  render() {
+    console.log("Parent renders!!!")
+    return <>
+      Name: { this.state.name} <br />
+      Count : {this.state.count} <br />
+      <Child name={this.state.name} />
+      <button onClick={() => this.increment()}>Click</button>
+     </>
+  }
+}
+
+ReactDOM.render(<Parent/> , document.getElementById("root"));
+
+```
+
+Solution 1)
+use lifecycle method shouldComponentUpdate()
+
+class Child extends React.Component {
+   shouldComponentUpdate(nextProps, nextState) {
+     return JSON.stringify(this.props) !== JSON.stringify(nextProps);
+   }
+
+Solution 2)
+use this if state is simple data not complex object
+class Child extends React.PureComponent {
+    render() {
+      console.log("child renders!!!")
+      return <h1>Child {this.props.name} </h1>
+    }
+}
+
+
+
 
 
 

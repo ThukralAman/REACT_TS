@@ -15,7 +15,7 @@ function App() {
        {/* <ReducerComponent/> */}
        {/* <EffectComponent/> */}
        {/* <UseRefComponent/> */}
-       <CustomHookComponent/>
+       {/* <CustomHookComponent/> */}
     </div>
   );
 }
