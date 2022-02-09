@@ -1960,6 +1960,4 @@ function Second() {
 }
 
 ```
-
-Resume @ 11:35
-
+ 
