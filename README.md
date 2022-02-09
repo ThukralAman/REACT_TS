@@ -1844,6 +1844,29 @@ const Details = () => {
 
 export default Details;
 
+===
+react-router-dom
+"react-router-dom": "^6.2.1",
+
+http://localhost:3000/products
+http://localhost:3000/cart
+http://localhost:3000/details/3
+http://localhost:3000/
+http://localhost:3000/testing
+
+
+====
+
+Copy Button.tsx into "components" folder
+overwrite "Navbar.tsx" from share.zip
+
+index.tsx
+
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+
 
 
 
