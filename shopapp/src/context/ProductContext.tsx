@@ -3,7 +3,8 @@ import IProduct from "../model/IProduct";
 import {products} from '../data';
 
 type ContextType = {
-    products:IProduct[]
+    products:IProduct[],
+    handleDetail: (id:any) => IProduct | null
 }
 type Props = {
 }
@@ -13,7 +14,8 @@ type StateType = {
 }
 
 export const ProductContext = React.createContext<ContextType>({
-    products:[]
+    products:[],
+    handleDetail: () => {return null;}
 });
 
 export class ProductProvider extends Component<Props, StateType> {
@@ -34,9 +36,14 @@ export class ProductProvider extends Component<Props, StateType> {
         })
     }
 
+    handleDetail = (id:string):IProduct => {
+        let prd:IProduct = this.state.products.filter(p => p.id === id) [0];
+        return prd;
+    }
+
     render() {
         return (
-            <ProductContext.Provider value={{...this.state}}>
+            <ProductContext.Provider value={{...this.state, handleDetail: this.handleDetail}}>
                 {this.props.children}
             </ProductContext.Provider>
         )
