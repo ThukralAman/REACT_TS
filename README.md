@@ -1829,7 +1829,20 @@ CDN ==> font-awesome [ for icons] and google fonts
 
 yarn add bootstrap react-router-dom styled-components @types/styled-components
 
+==========
 
+
+components ==> 
+Cart.tsx, CartList.tsx, Navbar.tsx, ProductList.tsx, Product.tsx, Details.tsx,
+Default.tsx
+
+Write for every comp default code as below:
+
+const Details = () => {
+	return <h1>Details!!!</h1>
+}
+
+export default Details;
 
 
 
