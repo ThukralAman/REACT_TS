@@ -1865,9 +1865,98 @@ index.tsx
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+Navbar.tsx
+ import {Link} from 'react-router-dom';
+
+ <Link to="/products" className="nav-link">   
+                    Products
+ </Link>   
+
+triggers
+<Route path="/products" element={<ProductList/>} />
+
+not:
+ <a href=".."> ==> Server side rendering
+
+===============
+
+styled-components
+
+replace App.css with github shared App.css
+
+=================================================
+
+ReactContext
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+var PersonContext = React.createContext();
+
+class PersonProvider extends React.Component {
+  state = {
+    name : 'Smith',
+    email : "",
+     update : this.update.bind(this)
+  };
+  
+  update(email) {
+    this.setState({
+        "email": email
+    });
+   }
+  
+  render() {
+    return <PersonContext.Provider value={this.state}>
+        {this.props.children}
+      </PersonContext.Provider>
+  }
+}
+
+class App extends React.Component{
+  render() {
+    return <PersonProvider>
+        <First />
+       </PersonProvider>
+  }
+}
+
+class First extends React.Component {
+  render() {
+     return <Second/>
+  }
+}
+
+class Second extends React.Component {
+  render() {
+    return <PersonContext.Consumer>
+            {
+              value => { 
+                return <React.Fragment>
+                  <h1> {value.name} {value.email}</h1>  
+                  <button onClick={() => value.update('smith@adobe.com')}>Change</button>
+                  </React.Fragment>
+              }
+      }
+      </PersonContext.Consumer>
+  }
+}
+
+ReactDOM.render(<App/>, document.getElementById("app"))
 
 
+===
 
+using Hooks
 
-
+function Second() {
+    let {email, name, update} = React.useContext(PersonContext);
+    return  
+                return <React.Fragment>
+                  <h1> {name} {email}</h1>  
+                  <button onClick={() => value.update('smith@adobe.com')}>Change</button>
+                  </React.Fragment>
+              }
+      }
+       
+  }
+}
 
