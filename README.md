@@ -1734,7 +1734,100 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-=====================
+===========================================
+
+Day 6
+
+-----
+
+Root Hooks
+1) useState()
+2) useReducer()
+3) useEffect()
+4) useRef()
+5) useCallback()
+6) Custom hooks
+7) useMemo() ==> HOF
+
+React.memo() [ HOC ] ==> shouldComponentUpdate() life cycle method ==> PureComponent
+
+let data = React.useMemo(() => fibanocci(arg), [arg]);
+
+---------
+
+High Order Component ==> HOC
+* conditionally render component
+* introduce new props to components ==> inject
+
+function DivComponent(props) {
+	return <>
+			Count : {props.count} // remaining data can be rendered
+			<div onClick={props.increment}>Click</div>
+	</>
+}
+
+
+function ImageComponent(;;) ...
+
+const withCounter = (WrappedComponent) => {
+	return class extends React.Component {
+		constructor(props) {
+			super(props);
+			this.state = {
+				count: 0;
+			}
+
+			increment = () => {
+				this.setState({
+						count : this.state.count + 1
+				})
+			}
+
+			render() {
+				return <WrappedComponent count={this.state.count} increment = {this.increment} />
+			}
+		}
+	}
+}
+
+=============
+
+function withLoading(WrappedComponent) {
+	return function({isLoading, ...props}) {
+		if(!isLoading) return <WrappedComponent {...props} />
+		else return <h1>Loading...</h1>
+	}
+}
+
+const CustomerListWithLoading = withLoading(CustomerList);
+
+class App extends Component {
+	state = {
+		loading : true,
+		data: []
+	}
+
+	componentDidMount() {
+		fetch api call and set loading and data
+	}
+
+	render() {
+		return <CustomerListWithLoading isLoading={loading} data={customers} ... />
+	}
+}
+
+withSecurity(withLoading(withClickHOC(DivComponent)));
+
+==================================================================
+
+share.zip ==> git repo
+
+index.html
+
+CDN ==> font-awesome [ for icons] and google fonts
+
+
+yarn add bootstrap react-router-dom styled-components @types/styled-components
 
 
 
