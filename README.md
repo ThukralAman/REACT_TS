@@ -1889,6 +1889,7 @@ replace App.css with github shared App.css
 ReactContext
 Context provides a way to pass data through the component tree without having to pass props down manually at every level.
 
+```
 var PersonContext = React.createContext();
 
 class PersonProvider extends React.Component {
@@ -1941,12 +1942,11 @@ class Second extends React.Component {
 }
 
 ReactDOM.render(<App/>, document.getElementById("app"))
-
-
+```
 ===
-
 using Hooks
 
+```
 function Second() {
     let {email, name, update} = React.useContext(PersonContext);
             return <React.Fragment>
@@ -1959,3 +1959,4 @@ function Second() {
   }
 }
 
+```
