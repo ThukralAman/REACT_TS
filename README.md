@@ -1949,8 +1949,7 @@ using Hooks
 
 function Second() {
     let {email, name, update} = React.useContext(PersonContext);
-    return  
-                return <React.Fragment>
+            return <React.Fragment>
                   <h1> {name} {email}</h1>  
                   <button onClick={() => value.update('smith@adobe.com')}>Change</button>
                   </React.Fragment>
