@@ -2060,6 +2060,12 @@ http://server/products/5 ==> by id
 
 npx json-server --watch data.json --port 1234
 
+http://localhost:1234/products
+http://localhost:1234/products/4
+http://localhost:1234/customers
+
+
+=====================
 
 
 
