@@ -4,7 +4,7 @@ import {products} from '../data';
 
 type ContextType = {
     products:IProduct[],
-    handleDetail: (id:any) => IProduct | null
+    handleDetail: (id:string) => IProduct | null
 }
 type Props = {
 }
@@ -33,7 +33,7 @@ export class ProductProvider extends Component<Props, StateType> {
         });
         this.setState({
             "products": prds
-        })
+        }, () =>  console.log("--------> products"));
     }
 
     handleDetail = (id:string):IProduct => {

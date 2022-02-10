@@ -11,6 +11,8 @@ import Default from './components/Default';
 
 const Cart = React.lazy(() => import('./components/Cart'))
 
+
+
 function App() {
   return (
      <>

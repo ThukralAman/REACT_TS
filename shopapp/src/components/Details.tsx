@@ -5,15 +5,16 @@ import { ProductContext } from "../context/ProductContext";
 
 const Details = () => {
 	let [product,setProduct] =  useState<IProduct | null>(null);
+	// http://server/4?page=4&size=10
 	let {id} = useParams();
 	const {handleDetail} = useContext(ProductContext);
 
 	useEffect(() => {
-		let p = handleDetail(id);
-		if(p !== null) {
+		let p = id && handleDetail(id);
+		if(p) {
 			setProduct(p);
 		}
-	}, [id]);
+	});
 
 	if(product != null) {
 		return(
