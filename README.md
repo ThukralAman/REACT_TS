@@ -2067,8 +2067,68 @@ http://localhost:1234/customers
 
 =====================
 
+npm i axios
+
+============================================
+
+npx create-react-app reduxexample
+
+==================
+
+Redux ==> React state management
+Redux  ==> Angular state management
+Redux ==> jQuery state management
+
+State Management
+
+Redux characters:
+1) store ==> has state ==> single store
+
+2) Action Creators
+	functions which take the payload from view and return action object
+	function add(product) {
+		return {
+			type: ADD_TO_CART
+			payload: product
+		}
+	}
+
+3) Reducer
+		functions ==> takes dispatched action from view, reads existing state from store,
+			mutate and return new data ==> update the state to store
 
 
+
+connect(
+ mapStateToProps,
+ mapDispatchToProps
+) (SmartComponent)
+
+// state is from redux
+// give it as "products" to SmartComponent
+// props.products.map(...)
+
+mapStateToProps = (state) => {
+	return {
+		products: state.data
+	}
+}	
+
+
+mapDispatchToProps = (dispatch) => {
+	return {
+		addToCart: (product) => dispatch({type:..., payload: ...}),
+		removeFromCart: (id) => dispatch({type:REMOVE, payload:id})
+	}
+}
+
+==============
+
+Redux, thunk and saga
+
+SSR
+
+======================
 
 
 
