@@ -20,7 +20,7 @@ export const CartProvider = (props) => {
     let [state, dispatch] = React.useReducer(cartReducer, initialState);
     let {products}  = React.useContext(ProductContext);
     function addToCart(id) {
-        let prd =products.filter(p => p.id === id) [0];
+        let prd = products.filter(p => p.id === id) [0];
         dispatch({type:'ADD_TO_CART', payload:prd})
     }
     function increment(id) {
