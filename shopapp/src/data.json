@@ -1,0 +1,41 @@
+{
+    "customers": [],
+    "products": [
+        {
+          "id": "1",
+          "name": "Data Accent Chair",
+          "price": 25999,
+          "image": "images/accent_chair.jpg"
+          
+        },
+        {
+          "id": "2",
+          "name": "Data Albany Sectional",
+          "price": 109999,
+          "image": "images/albany_sectional.jpg"
+        },
+        {
+          "id": "3",
+          "name": "Albany Table",
+          "price": 309999,
+          "image": "images/albany_table.jpg"
+        },
+        {
+          "id": "4",
+          "name": "Armchair",
+          "price": 12599,
+          "image": "images/armchair.jpg"
+        },
+        {
+          "id": "5",
+          "name": "Bar Stool",
+          "price": 4099,
+          "image": "images/bar_stool.jpg"
+        },
+        {
+          "id": "6",
+          "name": "Dining Table",
+          "price": 42999,
+          "image": "images/dinning_table.jpg"
+        }]
+}

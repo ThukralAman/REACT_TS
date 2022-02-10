@@ -35,7 +35,11 @@ const cartReducer = (state:StateType, action:Action) => {
         return {products: [...cartItems, {...item}], total};
 
     } else if (action.type === 'INCREMENT') {
-
+        // get product reference from cart state.products based on id
+        // increment qty
+        // total update
+        // return back the new state
+        // call from CartList +
     } else {
         return state;
     }

@@ -1961,3 +1961,115 @@ function Second() {
 
 ```
  
+data.js
+ProductContext.tsx
+index.tsx
+Product.tsx
+
+======================
+
+cart_reducer ==> useReducer()
+
+cart_context
+
+==========================
+
+Day 7
+
+
+<ProductContext.Consumer>
+	{
+		value => {
+
+		}
+	}
+
+</ProductContext.Consumer>
+
+using hooks:
+const  {products} = useContext(ProductContext);
+
+bootstrap  ==> CSS
+font-awesome ==> icons
+react-router-dom ==> BrowserRouter, Routes, Route, Link
+React Context
+
+==========================================================
+
+constructor() => render() ==> componentDidMount()
+=> if state changes ==> componentDidUpdate()
+
+===========
+
+cart reducer ==> cart state, total, addToCart, removeFromcart, increment, decrement
+instead of useState()
+
+
+==========
+
+cart_reducer.ts
+
+CartContext.tsx
+
+index.tsx ==> <CartProvider><App/></CartProvider>
+
+Product.tsx
+
+const {addToCart} = useContext(CartContext)
+
+<Button onClick={() => addToCart(id)}>
+
+
+React Dev tools ==> Component ==> view contents of ProductContext and CartContext
+
+Cart.tsx ==> Cart.jsx
+
+CartList.tsx ==> CartList.jsx
+
+===========
+
+ axios similar to "fetch"
+
+ axios.get()
+ axios.post()
+ axios.delete()
+
+ ====================
+
+ RESTful Web services to server JSON representation
+
+ json-server uses "json" file as storage and endpoints
+
+ {
+ 	"products": [],
+ 	"customers": [],
+ 	"orders": []
+ }
+
+GET, POST, PUT, DELETE
+
+http://server/products
+http://server/customers
+http://server/orders
+
+http://server/products?price=444
+http://server/products/5 ==> by id
+
+=================
+
+
+npx json-server --watch data.json --port 1234
+
+
+
+
+
+
+
+
+
+
+
+
+
+
