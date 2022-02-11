@@ -1,4 +1,4 @@
-import {CREATE_NEW_CONTACT, REMOVE_CONTACT} from './ActionTypes';
+import {CREATE_NEW_CONTACT, REMOVE_CONTACT} from '../ActionTypes';
 
 // useReducer(ContactReducer, initialState);
 const ContactReducer = (state = [], action) => {
