@@ -28,7 +28,7 @@ class App extends React.Component {
     this.props.deleteAContact(email);
   }
   render() {
-    <div>
+   return <div>
       <h1>Contacts Application</h1>
       <form onSubmit={this.handleSubmit}>
         Name: <input type="text" ref={this.nameRef}/> <br />
