@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends React.Component {
+  nameRef = React.createRef();
+  emailRef = React.createRef();
+  
+  handleSubmit(e) {
+    e.preventDefault();
+    let contact = {
+      name: this.nameRef.current.value,
+      email: this.emailRef.current.value
+    }
+    this.nameRef.current.value = "";
+    this.emailRef.current.value = "";
+  }
+  
+  render() {
+    <div>
+      <h1>Contacts Application</h1>
+      <form onSubmit={this.handleSubmit}>
+        Name: <input type="text" ref={this.nameRef}/> <br />
+        Email: <input type="text" ref={this.emailRef}/> <br />
+        <button type="submit">Submit</button>
+      </form>
     </div>
-  );
+  }
 }
-
-export default App;
