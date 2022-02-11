@@ -45,7 +45,6 @@ class App extends React.Component {
 // state from "redux store"
 // return props
 const mapStateToProps = (state) => {
-  console.log("=====>", state)
   return {
     contacts: state.contacts
   }

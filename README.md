@@ -2139,7 +2139,75 @@ yarn add redux react-redux
 
 
 
+Avoid forceUpdate();
 
+1) In case Child is not Memoized
 
+on PArent Component
+
+this.forceUpdate(); ==> triggers child component update
+
+2) In case Child is memoized
+
+class Parent extends Component {
+	childRef = React.createRef();
+	render() {
+		  <div>
+				<Child ref={childRef} />
+				...
+			</div>
+	}
+
+	doTask() {
+		this.childRef.current.forceUpdate();
+	}
+}
+
+===========================================
+
+Redux ==> Predictable State Management
+
+yarn add redux react-redux
+
+A) Redux
+1) Store ==> has state; single store in redux
+2) Action Creators ==> which return action objects { type: .., payload: ...}
+3) Reducers
+	3.1) Root Reducer 
+	3.2) Reducer ==> (existingState from store, action from dispatch) => returns new state to be updated in store
+4) View dispatch(action)
+
+B) react-redux
+	redux state ==> props to component
+	reducer dispatch ==> props to component
+
+	connect(
+			mapStateToProps,
+			mapDispatchToProps
+	)(SmartComponent)
+
+	// input is state from redux store
+	// return props to SamrtComponent
+	function mapStateToProps(state) {
+		return {
+			products: state.elements
+		}
+	}
+
+	function mapDispatchToProps(dispatch) {
+		addProduct: (p) => dispatch({type:"ADD_PRODUCT", payload:p})
+		deleteProduct: (id) => dispatch({type:"DELETE_PRODUCT", payload: id})
+	}
+
+	in React components
+	<button onClick={() => props.deleteProduct(3)} /> Delete </button>
+
+============
+
+npx create-react-app reduxmiddleware
+
+yarn add redux react-redux redux-thunk axios
+
+================
 
 
