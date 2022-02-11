@@ -1,7 +1,7 @@
 import {CREATE_NEW_CONTACT, REMOVE_CONTACT} from '../ActionTypes';
 
 // useReducer(ContactReducer, initialState);
-const ContactReducer = (state = [], action) => {
+export default  (state = [], action) => {
     switch(action.type) {
         case CREATE_NEW_CONTACT:
             return [
@@ -15,4 +15,4 @@ const ContactReducer = (state = [], action) => {
     }
 }
 
-export default ContactReducer;
+// export default ContactReducer;
