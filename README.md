@@ -2130,7 +2130,11 @@ SSR
 
 ======================
 
+Day 8
 
+npx create-react-app reduxexample
+
+yarn add redux react-redux
 
 
 
